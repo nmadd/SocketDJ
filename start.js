@@ -8,6 +8,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static('node_modules'));
 app.use(express.static(__dirname + '/frontend'));
+app.use(express.static(__dirname + '/sounds'));
+app.use(express.static(__dirname + '/public'));
 
 
 app.get('/', function(req,res,next){
