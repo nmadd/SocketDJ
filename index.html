@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 
 <head>
+    <base href="/" />
     <link href="/main.css" rel="stylesheet">
     <script src="/angular/angular.js"></script>
+    <script src="/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="/webmidi/webmidi.min.js"></script>
     <script src="/wavesurfer.js/dist/wavesurfer.cjs.js"></script>
     <script src="/wavesurfer.js/plugin/wavesurfer.regions.js"></script>
     <script type="text/javascript" src="/module.js"></script>
     <script type="text/javascript" src="/wavesurf.js"></script>
-    <script type="text/javascript" src="/home/home-controller.js"></script>
+    <!-- Controllers -->
+    <script src="/controllers/editSongCtrl.js"></script>
+    <script src="/controllers/songPadCtrl.js"></script>
+    <!-- Factories -->
     <script type="text/javascript" src="/waves/wave-factory.js"></script>
 </head>
 
-<body ng-app="App" ng-controller="HomeController">
+
+<!-- <body ng-app="App" ng-controller="HomeController">
 	<button ng-click="addSong()" id="add-song">Add song</button>
 	<button ng-click="loadWaves()" id="load-wave">Load waves</button>
     <div ng-show="getWaveState()" class='container'>
@@ -28,9 +34,8 @@
     <br>
     <br>
     <button ng-click="showHideWave()">Show/Hide Waves</button>
-<!--     <button ng-click="zoom(50)">Zoom In</button>
-    <button ng-click="zoom(-50)">Zoom Out</button>
- -->    <br>
+
+ <br>
     <br>
     <div ng-show="getWaveState()">
         <div ng-repeat="wave in waves" id="wave{{$index}}">
@@ -39,5 +44,9 @@
             <button ng-click="playPause($index)">Play/Pause Sound {{$index + 1}}</button>
         </div>
         <br>
-    </div>
+    </div> -->
+
+<body ng-app="App">
+    <ui-view></ui-view>
+
 </body>
