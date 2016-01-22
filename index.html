@@ -3,6 +3,7 @@
 <head>
     <link href="/main.css" rel="stylesheet">
     <script src="/angular/angular.js"></script>
+    <script src="/webmidi/webmidi.min.js"></script>
     <script src="/wavesurfer.js/dist/wavesurfer.cjs.js"></script>
     <script src="/wavesurfer.js/plugin/wavesurfer.regions.js"></script>
     <script type="text/javascript" src="/module.js"></script>
@@ -12,6 +13,8 @@
 </head>
 
 <body ng-app="App" ng-controller="HomeController">
+	<button ng-click="addSong()" id="add-song">Add song</button>
+	<button ng-click="loadWaves()" id="load-wave">Load waves</button>
     <div ng-show="getWaveState()" class='container'>
         <div id="wave">
         </div>
