@@ -10,11 +10,8 @@ function onSuccess() {
     	if(event.note.name === 'D') waveSurferObjects[2].playPause();
 
 	})
-	WebMidi.addListener('programchange', function(event){
-		console.log('program changed');
-	})
-	WebMidi.addListener('channelmode', function(event){
-		console.log('channel mode');
+	WebMidi.addListener('controlchange', function(event){
+		console.log('Control change', event);
 	})
 };
 

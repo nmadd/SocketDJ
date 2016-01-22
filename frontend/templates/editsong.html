@@ -1,1 +1,25 @@
-<h2> HI </h2>
+<h4>Search for jamz</h4>
+<div class="form">
+    <form name="songForm" ng-submit="searchForSongs(search)">
+        <!-- GENERAL SEARCH FIELD-->
+        <div class="form-group">
+            <input type="text" name="search" ng-model="search">
+            <button type="submit" class="btn btn-primary" ng-disabled="songForm.$invalid">Search</button>
+        </div>     
+    </form>
+    <br>
+    <h4>Search Results:</h4>
+    <ul ng-repeat="song in searchResults()">
+   <!--  {{song}} -->
+        <li songData="{{song}}"><p>{{song.name}} - {{song.artists[0].name}}</p><button class="add-button inline-button" ng-click="addSong(song)"><span class="glyphicon glyphicon-plus"></span>Add Song</button></li>
+    </ul>
+</div>
+
+<div ng-show="getWaveState()">
+    <div ng-repeat="wave in waves() track by $index" id="wave{{$index}}">
+        <button ng-click="zoom($index)" ng-show="!isZoomed">Zoom In</button>
+        <button ng-click="zoom($index)" ng-show="isZoomed">Zoom Out</button>
+        <button ng-click="playPause($index)">Play/Pause Sound {{$index + 1}}</button>
+    </div>
+    <br>
+</div>
