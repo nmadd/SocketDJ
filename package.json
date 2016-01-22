@@ -19,6 +19,8 @@
   "homepage": "https://github.com/nmadd/stackathon#readme",
   "dependencies": {
     "angular": "^1.4.9",
-    "angular-ui-router": "^0.2.15"
+    "angular-ui-router": "^0.2.15",
+    "wavesurfer.js": "^1.0.51",
+    "webmidi": "^1.0.0-beta.13"
   }
 }

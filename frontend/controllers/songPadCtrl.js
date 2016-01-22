@@ -1,5 +1,4 @@
-
-app.controller('HomeController', function($scope, WaveFactory) {
+app.controller('SongPadCtrl', function($scope, WaveFactory) {
     $scope.waves = ['one', 'two', 'three']
     $scope.sounds = ['one', 'two', 'three']
 
@@ -15,10 +14,10 @@ app.controller('HomeController', function($scope, WaveFactory) {
     $scope.playPause = WaveFactory.playPause;
 
     $scope.zoom = function(num) {
-    	WaveFactory.toggleZoom(num, $scope.isZoomed)
-    	$scope.isZoomed = !$scope.isZoomed;
+        WaveFactory.toggleZoom(num, $scope.isZoomed)
+        $scope.isZoomed = !$scope.isZoomed;
     };
 
     $scope.addSong = WaveFactory.addSong;
-})
+});
 
