@@ -11,8 +11,7 @@ app.use(express.static(__dirname + '/frontend'));
 app.use(express.static(__dirname + '/sounds'));
 app.use(express.static(__dirname + '/public'));
 
-
-app.get('/', function(req,res,next){
+app.get('/*', function(req,res,next){
 	res.status(200).sendFile(__dirname + '/index.html');
 })
 

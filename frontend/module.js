@@ -6,7 +6,7 @@ var app = angular.module('App', ['ui.router'])
 
         $stateProvider
             .state("songPad", {
-                url: "",
+                url: "/",
                 templateUrl: "templates/songpad.html",
                 controller: "SongPadCtrl"
             })
