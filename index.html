@@ -23,7 +23,34 @@
 </head>
 
 <body ng-app="App">
-    <ui-view></ui-view>
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a ui-sref="songPad">
+                        AudioSpin
+                    </a>
+                </li>
+                <li>
+                    <a ui-sref="songPad">Song Pad</a>
+                </li>
+                <li>
+                    <a ui-sref="editSong">Add/Edit Songs</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <ui-view></ui-view>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+    </div>
 </body>
 
 </html>
