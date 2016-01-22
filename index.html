@@ -1,7 +1,12 @@
 <!DOCTYPE html>
+<html lang="en">
 
 <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <base href="/" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link href="/main.css" rel="stylesheet">
     <script src="/angular/angular.js"></script>
     <script src="/angular-ui-router/release/angular-ui-router.js"></script>
@@ -18,35 +23,37 @@
 </head>
 
 
-<!-- <body ng-app="App" ng-controller="HomeController">
-	<button ng-click="addSong()" id="add-song">Add song</button>
-	<button ng-click="loadWaves()" id="load-wave">Load waves</button>
-    <div ng-show="getWaveState()" class='container'>
-        <div id="wave">
-        </div>
-    </div>
-    
-    <div>
-        <div ng-repeat="sound in sounds">
-            <button class="sound" ng-click="playPause($index)">Sound {{$index + 1}}</button>
-        </div>
-    </div>
-    <br>
-    <br>
-    <button ng-click="showHideWave()">Show/Hide Waves</button>
-
- <br>
-    <br>
-    <div ng-show="getWaveState()">
-        <div ng-repeat="wave in waves" id="wave{{$index}}">
-        <button ng-click="zoom($index)" ng-show="!isZoomed">Zoom In</button>
-                <button ng-click="zoom($index)" ng-show="isZoomed">Zoom Out</button>
-            <button ng-click="playPause($index)">Play/Pause Sound {{$index + 1}}</button>
-        </div>
-        <br>
-    </div> -->
 
 <body ng-app="App">
-    <ui-view></ui-view>
 
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a ui-sref="songPad">
+                        AudioSpin
+                    </a>
+                </li>
+                <li>
+                    <a ui-sref="songPad">Song Pad</a>
+                </li>
+                <li>
+                    <a ui-sref="editSong">Add/Edit Songs</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <ui-view></ui-view>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+    </div>
 </body>
+
+</html>
