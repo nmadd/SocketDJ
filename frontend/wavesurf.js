@@ -28,10 +28,20 @@ waveSurferSounds.forEach(function(sound, index){
 	    newWave.load(sound);
 
 	    newWave.enableDragSelection({
-			loop: true,
+			loop: false,
 			resize: true
 		});
-
+		//initialize start and end
+		newWave.regionData = {
+			start : null,
+			end : null
+		}
+		newWave.isPlaying = false;
+		newWave.isZoomed = false;
+	    newWave.on('region-created', function(region) {
+	    	newWave.regionData = region;
+	    	newWave.regionData.domId = "wave" + index;
+	    });
 	    waveSurferObjects.push(newWave);
 
 	});
