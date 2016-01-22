@@ -1,6 +1,7 @@
 app.factory('WaveFactory', function($http) {
     var factory = {};
     var wavesCount = 0;
+    var searchResults;
 
     factory.playPause = function(num) {
         if (waveSurferObjects[num].isPlaying) {
@@ -18,19 +19,43 @@ app.factory('WaveFactory', function($http) {
         }
     };
 
-    factory.addSong = function() {
-        console.log("ADDED");
-        return $http({
+    factory.searchForSongs = function(query){
+    	return $http({
                 method: "GET",
-                url: ' https://api.spotify.com/v1/tracks/0eGsygTp906u18L0Oimnem'
+                url: ' https://api.spotify.com/v1/search',
+                params: {
+					q: query, 
+					type: 'track', 
+					limit: 25
+				}
             })
-            .then(function(response) {
-                var songUrl = response.data.preview_url;
-                console.log('Spotify song', songUrl)
-                waveSurferSounds.push(songUrl);
-                factory.createWave(wavesCount, songUrl);
-                wavesCount++;
-            })
+    		.then(function(response){
+    			searchResults = response.data;
+    		})
+    }
+
+    factory.getSearchResults = function(){
+    	return searchResults;
+    }
+
+    factory.addSong = function(song) {
+    	var songUrl = '';
+
+    	waveSurferSounds.push(songUrl);
+        factory.createWave(wavesCount, songUrl);
+        wavesCount++;
+
+        // return $http({
+        //         method: "GET",
+        //         url: ' https://api.spotify.com/v1/tracks/0eGsygTp906u18L0Oimnem'
+        //     })
+        //     .then(function(response) {
+        //         var songUrl = response.data.preview_url;
+        //         console.log('Spotify song', songUrl)
+        //         waveSurferSounds.push(songUrl);
+        //         factory.createWave(wavesCount, songUrl);
+        //         wavesCount++;
+        //     })
     };
 
     factory.createWave = function(num, sound) {
