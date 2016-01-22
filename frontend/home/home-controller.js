@@ -1,7 +1,10 @@
-app.controller('HomeController', function($scope){
+app.controller('HomeController', function($scope, WaveFactory){
 	$scope.waves = ['one', 'two', 'three']
 	$scope.sounds = ['one', 'two', 'three']
 
+	$scope.addSong = function(){
+		WaveFactory.addSong();
+	}
 
 
 	var waveState = true;
@@ -23,29 +26,5 @@ app.controller('HomeController', function($scope){
 		waveSurferObjects.forEach(function(sound){
 			sound.zoom(num);
 		})
-	}
-	$scope.noLoop = function(){
-		// console.log(wavesurfer.regions)
-		// wavesurfer.regions[0].update({loop: false});
-	}
-	$scope.getCurrentTime = function(){
-		wavesurfer.on('audioprocess', function(){
-			return wavesurfer.getCurrentTime();
-		})
-
-	}
-	$scope.addRegion = function(){
-		waveSurferObjects.forEach(function(sound){
-			sound.enableDragSelection({
-			loop: true,
-			resize: true
-		});
-		})
-
-
-		wavesurfer.enableDragSelection({
-			loop: true,
-			resize: true
-		});
 	}
 })
