@@ -25,8 +25,8 @@ app.factory('WaveFactory', function($http) {
                 method: "GET",
                 url: ' https://api.spotify.com/v1/search',
                 params: {
-					q: query, 
-					type: 'track', 
+					q: query,
+					type: 'track',
 					limit: 5
 				}
             })
@@ -83,8 +83,6 @@ app.factory('WaveFactory', function($http) {
             newWave.regionData = region;
             newWave.regionData.domId = "wave" + wavesCount;
         });
-        waveSurferObjects.push(newWave);
-
 
     }
 
@@ -99,6 +97,30 @@ app.factory('WaveFactory', function($http) {
             waveSurferObjects[num].zoom(50);
         }
     };
+
+    factory.filterKeys = ['biquad' /*, 'reverb', 'delay'*/];
+
+    factory.setFilter = function (num, key) {
+        var surfer = waveSurferObjects[num];
+        console.log(surfer.backend.ac);
+        var filters = {
+            biquad : function() {
+                var lowpass = surfer.backend.ac.createBiquadFilter();
+                surfer.backend.setFilter(lowpass);
+            },
+            //These filters arent working right now
+            // reverb : function() {
+            //     var reverb = surfer.backend.ac.createConvolver();
+            //     surfer.backend.setFilter(reverb);
+            // },
+            // delay : function() {
+            //     var delay = surfer.backend.ac.createDelay(0.5);
+            //     surfer.backend.setFilter(delay);
+            // }
+        }
+        if (!filters[key]) return;
+        filters[key]();
+    }
 
     return factory;
 })

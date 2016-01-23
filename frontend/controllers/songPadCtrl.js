@@ -17,7 +17,8 @@ app.controller('SongPadCtrl', function($scope, WaveFactory) {
         WaveFactory.toggleZoom(num, $scope.isZoomed)
         $scope.isZoomed = !$scope.isZoomed;
     };
-
+    $scope.filters = WaveFactory.filterKeys;
     $scope.addSong = WaveFactory.addSong;
+    $scope.setFilter = WaveFactory.setFilter;
 });
 
