@@ -4,8 +4,6 @@ app.factory('WaveFactory', function($http) {
     var searchResults;
     var waveSurferObjects = [];
 
-    factory.waves = waveSurferObjects;
-
     factory.playPause = function(num) {
         if (waveSurferObjects[num].isPlaying) {
             waveSurferObjects[num].pause();
@@ -57,6 +55,8 @@ app.factory('WaveFactory', function($http) {
     factory.createWave = function(num, sound) {
 
         var newWave = Object.create(WaveSurfer);
+
+
         var options = {
             container: document.querySelector('#wave' + num),
             waveColor: 'violet',
@@ -84,6 +84,7 @@ app.factory('WaveFactory', function($http) {
             newWave.regionData = region;
             newWave.regionData.domId = "wave" + wavesCount;
         });
+
         newWave.on('ready', function () {
             var timeline = Object.create(WaveSurfer.Timeline);
 
@@ -92,9 +93,12 @@ app.factory('WaveFactory', function($http) {
                 container: "#wave-timeline" + num
             });
         });
+
         waveSurferObjects.push(newWave)
 
     }
+
+
 
     factory.getWaveCount = function() {
         return wavesCount + 1;
