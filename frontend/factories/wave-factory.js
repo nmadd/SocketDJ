@@ -5,8 +5,6 @@ app.factory('WaveFactory', function($http) {
     var waveSurferObjects = [];
 
 
-
-
     factory.playPause = function(num) {
 
         if (waveSurferObjects[num].isPlaying) {
