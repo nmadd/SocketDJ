@@ -5,21 +5,26 @@
         <div class="form-group">
             <input type="text" name="search" ng-model="search">
             <button type="submit" class="btn btn-primary" ng-disabled="songForm.$invalid">Search</button>
-        </div>     
+        </div>
     </form>
     <br>
     <h4>Search Results:</h4>
     <ul ng-repeat="song in searchResults()">
-   <!--  {{song}} -->
-        <li songData="{{song}}"><p>{{song.name}} - {{song.artists[0].name}}</p><button class="add-button inline-button" ng-click="addSong(song)"><span class="glyphicon glyphicon-plus"></span>Add Song</button></li>
+        <!--  {{song}} -->
+        <li songData="{{song}}">
+            <p>{{song.name}} - {{song.artists[0].name}}</p>
+            <button class="add-button inline-button" ng-click="addSong(song)"><span class="glyphicon glyphicon-plus"></span>Add Song</button>
+        </li>
     </ul>
 </div>
-
 <div ng-show="getWaveState()">
     <div ng-repeat="wave in waves() track by $index" id="wave{{$index}}">
         <button ng-click="playPause($index)">Play/Pause Sound {{$index + 1}}</button>
         <button ng-click="zoom($index)" ng-show="!isZoomed">Zoom In</button>
         <button ng-click="zoom($index)" ng-show="isZoomed">Zoom Out</button>
+        <div class="btn-group btn-group-sm">
+            <button ng-repeat="filter in filters" class="btn btn-primary btn-sml" ng-click="setFilter($parent.$index, filter)">{{filter}}</button>
+        </div>
         <br>
         <br>
         <div id="wave-timeline{{$index}}"></div>
