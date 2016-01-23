@@ -7,6 +7,8 @@ app.controller('EditSongCtrl', function($scope, WaveFactory) {
 	$scope.waves = function(){
 		return new Array(WaveFactory.getWaveCount());
 	}
+
+
  
 
     $scope.addSong = function(song){

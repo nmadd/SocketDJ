@@ -19,7 +19,7 @@ function onFailure(err) {
     console.log("WebMidi could not be enabled.", err);
 };
 
-var waveSurferSounds = ['/dangerous.mp3'];
+// var waveSurferSounds = ['/dangerous.mp3'];
 
 var waveSurferObjects = [];
 
