@@ -2,6 +2,7 @@ app.factory('WaveFactory', function($http) {
     var factory = {};
     var wavesCount = 0;
     var searchResults;
+    var waveSurferObjects = [];
 
     factory.playPause = function(num) {
         if (waveSurferObjects[num].isPlaying) {
@@ -46,7 +47,7 @@ app.factory('WaveFactory', function($http) {
     factory.addSong = function(song) {
     	var songUrl = song.preview_url;
 
-    	waveSurferSounds.push(songUrl);
+    	// waveSurferSounds.push(songUrl);
         factory.createWave(wavesCount, songUrl);
         wavesCount++;
     };
@@ -83,8 +84,21 @@ app.factory('WaveFactory', function($http) {
             newWave.regionData = region;
             newWave.regionData.domId = "wave" + wavesCount;
         });
-        waveSurferObjects.push(newWave);
+
+        newWave.on('ready', function () {
+            var timeline = Object.create(WaveSurfer.Timeline);
+
+            timeline.init({
+                wavesurfer: newWave,
+                container: "#wave-timeline" + num
+            });
+        });
+
+        waveSurferObjects.push(newWave)
+
     }
+
+
 
     factory.getWaveCount = function() {
         return wavesCount + 1;

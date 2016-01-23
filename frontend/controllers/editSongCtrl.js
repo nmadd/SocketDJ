@@ -14,6 +14,7 @@ app.controller('EditSongCtrl', function($scope, WaveFactory) {
         WaveFactory.resetSearchResults();
     }
 
+
     var waveState = true;
     $scope.getWaveState = function() {
         return waveState;
