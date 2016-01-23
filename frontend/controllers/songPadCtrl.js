@@ -1,8 +1,9 @@
 app.controller('SongPadCtrl', function($scope, WaveFactory) {
     var socket = io.connect(window.location.href);
 
-    $scope.waves = ['one', 'two', 'three']
-    $scope.sounds = ['one', 'two', 'three']
+    $scope.waves = ['one', 'two', 'three'];
+    $scope.sounds = [1,2,3,4,5,6,7,8];
+    // $scope.sounds = WaveFactory.waves;
 
     $scope.playPause = function(index){
         socket.emit('songLoad', {index: index});
