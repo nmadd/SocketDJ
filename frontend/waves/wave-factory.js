@@ -2,6 +2,7 @@ app.factory('WaveFactory', function($http) {
     var factory = {};
     var wavesCount = 0;
     var searchResults;
+    var waveSurferObjects = [];
 
     factory.playPause = function(num) {
         if (waveSurferObjects[num].isPlaying) {
@@ -11,7 +12,7 @@ app.factory('WaveFactory', function($http) {
             var start = waveSurferObjects[num].regionData.start,
                 end = waveSurferObjects[num].regionData.end;
             if (start && end) {
-                waveSurferObjects[num].play(start, end);
+                waveSurferObjects[num].play(start);
             } else {
                 waveSurferObjects[num].play();
             }
@@ -45,13 +46,11 @@ app.factory('WaveFactory', function($http) {
 
     factory.addSong = function(song) {
     	var songUrl = song.preview_url;
-
-    	waveSurferSounds.push(songUrl);
         factory.createWave(wavesCount, songUrl);
         wavesCount++;
     };
 
-    factory.createWave = function(num, sound) {
+    factory.createWave = function(num, sound, redraw) {
 
         var newWave = Object.create(WaveSurfer);
 
@@ -69,7 +68,7 @@ app.factory('WaveFactory', function($http) {
         newWave.load(sound);
 
         newWave.enableDragSelection({
-            loop: false,
+            loop: true,
             resize: true
         });
         //initialize start and end
@@ -79,17 +78,23 @@ app.factory('WaveFactory', function($http) {
         }
         newWave.isPlaying = false;
         newWave.isZoomed = false;
+        newWave.audio = sound;
         newWave.on('region-created', function(region) {
             newWave.regionData = region;
             newWave.regionData.domId = "wave" + wavesCount;
         });
-        waveSurferObjects.push(newWave);
+
+        if(!redraw) waveSurferObjects.push(newWave);
 
 
     }
 
     factory.getWaveCount = function() {
         return wavesCount + 1;
+    }
+
+    factory.getWaveSurferObjects = function(){
+    	return waveSurferObjects;
     }
 
     factory.toggleZoom = function(num, isZoomed) {
