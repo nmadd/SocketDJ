@@ -83,7 +83,7 @@ app.factory('WaveFactory', function($http) {
             newWave.regionData = region;
             newWave.regionData.domId = "wave" + wavesCount;
         });
-
+        waveSurferObjects.push(newWave);
     }
 
     factory.getWaveCount = function() {
