@@ -1,3 +1,6 @@
-<div class="col-md-8 col-md-offset-2" ng-repeat="sound in sounds">
+<div class="col-md-4" ng-repeat="sound in sounds">
     <button class="sound" ng-click="playPause($index)">Sound {{$index + 1}}</button>
+    <div class="btn-group btn-group-sm">
+        <button ng-repeat="filter in filters" class="btn btn-primary btn-sml" ng-click="setFilter($parent.$index, filter)">{{filter}}</button>
+    </div>
 </div>
