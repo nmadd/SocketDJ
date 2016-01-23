@@ -1,6 +1,6 @@
 app.controller('SongPadCtrl', function($scope, WaveFactory) {
     $scope.waves = ['one', 'two', 'three']
-    $scope.sounds = WaveFactory.waves;
+    $scope.sounds = ['one', 'two', 'three']
 
     var waveState = true;
     $scope.getWaveState = function() {
