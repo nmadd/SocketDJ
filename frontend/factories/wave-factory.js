@@ -23,7 +23,7 @@ app.factory('WaveFactory', function($http) {
             waveSurferObjects[num].isPlaying = true;
         }
     };
-    
+
 
 
     factory.searchForSongs = function(query){
@@ -112,15 +112,18 @@ app.factory('WaveFactory', function($http) {
         }
     };
 
-    factory.filterKeys = ['biquad' /*, 'reverb', 'delay'*/];
+    factory.filterKeys = ['biQuad', 'None' /*, 'reverb', 'delay'*/];
 
     factory.setFilter = function (num, key) {
         var surfer = waveSurferObjects[num];
         console.log(surfer.backend.ac);
         var filters = {
-            biquad : function() {
+            biQuad : function() {
                 var lowpass = surfer.backend.ac.createBiquadFilter();
                 surfer.backend.setFilter(lowpass);
+            },
+            None : function() {
+                surfer.backend.setFilter();
             },
             //These filters arent working right now
             // reverb : function() {
