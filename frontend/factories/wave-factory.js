@@ -6,7 +6,9 @@ app.factory('WaveFactory', function($http) {
 
     factory.waves = waveSurferObjects;
 
+
     factory.playPause = function(num) {
+
         if (waveSurferObjects[num].isPlaying) {
             waveSurferObjects[num].pause();
             waveSurferObjects[num].isPlaying = false;
@@ -21,10 +23,12 @@ app.factory('WaveFactory', function($http) {
             waveSurferObjects[num].isPlaying = true;
         }
     };
+    
+
 
     factory.searchForSongs = function(query){
-    	console.log('SEARCH QUERY', query)
-    	return $http({
+        console.log('SEARCH QUERY', query)
+        return $http({
                 method: "GET",
                 url: ' https://api.spotify.com/v1/search',
                 params: {
