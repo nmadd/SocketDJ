@@ -16,7 +16,7 @@ app.factory('WaveFactory', function($http) {
             var start = waveSurferObjects[num].regionData.start,
                 end = waveSurferObjects[num].regionData.end;
             if (start && end) {
-                waveSurferObjects[num].play(start, end);
+                waveSurferObjects[num].play(start);
             } else {
                 waveSurferObjects[num].play();
             }
@@ -74,7 +74,7 @@ app.factory('WaveFactory', function($http) {
         newWave.load(sound);
 
         newWave.enableDragSelection({
-            loop: false,
+            loop: true,
             resize: true
         });
         //initialize start and end
