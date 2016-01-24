@@ -1,7 +1,37 @@
 .sound {
 	width: 150px;
 	height:150px;
+    margin: 10px;
+    margin-bottom: 30px;
 }
+
+
+.colored {
+    background-color: rgba(255,0,255,.75); 
+}
+/*#song-pad-1.colored  {
+    background-color: rgba(229,229,3,.75); 
+}
+#song-pad-2.colored  {
+    background-color: rgba(255,84,13,.75); 
+}
+#song-pad-3.colored  {
+    background-color: rgba(97,0,255,.75); 
+}
+#song-pad-4.colored  {
+    background-color: rgba(2,169,234,.75); 
+}
+#song-pad-5.colored  {
+    background-color: rgba(137,252,0,.75); 
+}
+#song-pad-6.colored  {
+    background-color: rgba(30,46,222,.75); 
+}
+#song-pad-7.colored  {
+    background-color: rgba(206,45,79,.75); 
+}*/
+
+
 
 /*!
  * Start Bootstrap - Simple Sidebar HTML Template (http://startbootstrap.com)
@@ -72,12 +102,12 @@
 .sidebar-nav li a {
     display: block;
     text-decoration: none;
-    color: #999999;
+    color: #fff;
 }
 
 .sidebar-nav li a:hover {
     text-decoration: none;
-    color: #fff;
+    color: magenta;
     background: rgba(255,255,255,0.2);
 }
 
@@ -93,11 +123,11 @@
 }
 
 .sidebar-nav > .sidebar-brand a {
-    color: #999999;
+    color: #fff;
 }
 
 .sidebar-nav > .sidebar-brand a:hover {
-    color: #fff;
+    color: magenta;
     background: none;
 }
 

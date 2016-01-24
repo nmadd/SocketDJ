@@ -1,4 +1,4 @@
-app.controller('SongPadCtrl', function($scope, WaveFactory) {
+app.controller('SongPadCtrl', function($scope, WaveFactory, $rootScope) {
     var socket = io.connect(window.location.href);
 
     $scope.waves = ['one', 'two', 'three'];
@@ -16,6 +16,7 @@ app.controller('SongPadCtrl', function($scope, WaveFactory) {
 
     socket.on('songPlay', function(data){
         WaveFactory.playPause(data.index);
+        $rootScope.$digest();
     })
 
     var waveState = true;
@@ -27,6 +28,8 @@ app.controller('SongPadCtrl', function($scope, WaveFactory) {
         else waveState = false;
     }
     $scope.isZoomed = false;
+
+    $scope.getWaveObjects = WaveFactory.getWaveObjects;
     
 
     $scope.zoom = function(num) {
