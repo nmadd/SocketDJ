@@ -23,37 +23,37 @@ app.factory('WaveFactory', function($http) {
             waveSurferObjects[num].isPlaying = true;
         }
     };
-    
 
 
-    factory.searchForSongs = function(query){
+
+    factory.searchForSongs = function(query) {
         console.log('SEARCH QUERY', query)
         return $http({
                 method: "GET",
                 url: ' https://api.spotify.com/v1/search',
                 params: {
-					q: query,
-					type: 'track',
-					limit: 5
-				}
+                    q: query,
+                    type: 'track',
+                    limit: 5
+                }
             })
-    		.then(function(response){
-    			searchResults = response.data.tracks.items;
-    		})
+            .then(function(response) {
+                searchResults = response.data.tracks.items;
+            })
     }
 
-    factory.getSearchResults = function(){
-    	return searchResults;
+    factory.getSearchResults = function() {
+        return searchResults;
     }
 
-    factory.resetSearchResults = function(){
-    	searchResults = '';
+    factory.resetSearchResults = function() {
+        searchResults = '';
     }
 
     factory.addSong = function(song) {
-    	var songUrl = song.preview_url;
+        var songUrl = song.preview_url;
 
-    	// waveSurferSounds.push(songUrl);
+        // waveSurferSounds.push(songUrl);
         factory.createWave(wavesCount, songUrl);
         wavesCount++;
     };
@@ -88,7 +88,7 @@ app.factory('WaveFactory', function($http) {
             newWave.regionData = region;
             newWave.regionData.domId = "wave" + wavesCount;
         });
-        newWave.on('ready', function () {
+        newWave.on('ready', function() {
             var timeline = Object.create(WaveSurfer.Timeline);
 
             timeline.init({
@@ -116,25 +116,43 @@ app.factory('WaveFactory', function($http) {
         }
     };
 
-    factory.filterKeys = ['biquad' /*, 'reverb', 'delay'*/];
+    factory.filterKeys = ['LowPass', 'HighPass', 'BandPass', 'LowShelf', 'HighShelf', 'None'];
 
-    factory.setFilter = function (num, key) {
+    factory.setFilter = function(num, key) {
         var surfer = waveSurferObjects[num];
-        console.log(surfer.backend.ac);
         var filters = {
-            biquad : function() {
+            LowPass: function() {
                 var lowpass = surfer.backend.ac.createBiquadFilter();
                 surfer.backend.setFilter(lowpass);
             },
-            //These filters arent working right now
-            // reverb : function() {
-            //     var reverb = surfer.backend.ac.createConvolver();
-            //     surfer.backend.setFilter(reverb);
-            // },
-            // delay : function() {
-            //     var delay = surfer.backend.ac.createDelay(0.5);
-            //     surfer.backend.setFilter(delay);
-            // }
+            None: function() {
+                surfer.backend.setFilter();
+            },
+            HighPass: function() {
+                var highPass = surfer.backend.ac.createBiquadFilter();
+                highPass.type = 'highpass';
+                highPass.frequency.value = 1200;
+                surfer.backend.setFilter(highPass);
+            },
+            BandPass: function() {
+                var bandPass = surfer.backend.ac.createBiquadFilter();
+                bandPass.type = 'bandpass';
+                surfer.backend.setFilter(bandPass);
+            },
+            LowShelf: function() {
+                var lowShelf = surfer.backend.ac.createBiquadFilter();
+                lowShelf.type = 'lowshelf';
+                lowShelf.frequency.value = 1000;
+                lowShelf.gain.value = 25;
+                surfer.backend.setFilter(lowShelf);
+            },
+            HighShelf: function() {
+                var highShelf = surfer.backend.ac.createBiquadFilter();
+                highShelf.type = 'highshelf';
+                highShelf.frequency.value = 1000;
+                highShelf.gain.value = 25;
+                surfer.backend.setFilter(highShelf);
+            },
         }
         if (!filters[key]) return;
         filters[key]();
@@ -142,4 +160,3 @@ app.factory('WaveFactory', function($http) {
 
     return factory;
 })
-

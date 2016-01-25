@@ -12,7 +12,7 @@ app.controller('EditSongCtrl', function($scope, WaveFactory) {
         var count = WaveFactory.getWaveCount();
         return new Array(count);
     }
-
+    $scope.showResults = false;
     $scope.addSong = function(song) {
         var index = $scope.showContainers.length;
         $scope.showContainers[index - 1] = true;
@@ -26,7 +26,11 @@ app.controller('EditSongCtrl', function($scope, WaveFactory) {
         return waveState;
     }
     $scope.isZoomed = false;
-    $scope.playPause = WaveFactory.playPause;
+    $scope.isPlaying = false;
+    $scope.playPause = function(index) {
+        $scope.isPlaying = !$scope.isPlaying;
+        WaveFactory.playPause(index);
+    };
 
     $scope.zoom = function(num) {
         WaveFactory.toggleZoom(num, $scope.isZoomed)
