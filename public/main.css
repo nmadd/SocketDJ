@@ -21,11 +21,11 @@ body {
     -o-transition: background 0.3s linear;
     -ms-transition: background 0.3s linear;
     transition: background 0.3s linear;
-    -webkit-transition: font-size 0.3s linear;
-    -moz-transition: font-size 0.3s linear;
-    -o-transition: font-size 0.3s linear;
-    -ms-transition: font-size 0.3s linear;
-    transition: font-size 0.3s linear;
+    -webkit-transition: font-size 0.1s linear;
+    -moz-transition: font-size 0.1s linear;
+    -o-transition: font-size 0.1s linear;
+    -ms-transition: font-size 0.1s linear;
+    transition: font-size 0.1s linear;
 }
 
 .sound:hover {
@@ -33,7 +33,7 @@ body {
 }
 
 .colored {
-    font-size: 1.5em;
+    font-size: 1.7em;
     background: #cb58d8;
 }
 
