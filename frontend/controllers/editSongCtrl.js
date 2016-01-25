@@ -26,7 +26,11 @@ app.controller('EditSongCtrl', function($scope, WaveFactory) {
         return waveState;
     }
     $scope.isZoomed = false;
-    $scope.playPause = WaveFactory.playPause;
+    $scope.isPlaying = false;
+    $scope.playPause = function(index) {
+        $scope.isPlaying = !$scope.isPlaying;
+        WaveFactory.playPause(index);
+    };
 
     $scope.zoom = function(num) {
         WaveFactory.toggleZoom(num, $scope.isZoomed)
