@@ -12,7 +12,7 @@ app.controller('EditSongCtrl', function($scope, WaveFactory) {
         var count = WaveFactory.getWaveCount();
         return new Array(count);
     }
-
+    $scope.showResults = false;
     $scope.addSong = function(song) {
         var index = $scope.showContainers.length;
         $scope.showContainers[index - 1] = true;

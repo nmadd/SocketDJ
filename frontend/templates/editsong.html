@@ -8,14 +8,23 @@
         </div>
     </form>
     <br>
-    <h4>Search Results:</h4>
-    <ul ng-repeat="song in searchResults()">
-        <!--  {{song}} -->
-        <li songData="{{song}}">
-            <p>{{song.name}} - {{song.artists[0].name}}</p>
-            <button class="add-button inline-button" ng-click="addSong(song)"><span class="glyphicon glyphicon-plus"></span>Add Song</button>
-        </li>
-    </ul>
+    <div>
+        <h4>Search Results:</h4>
+        <table class="table table-striped table-hover">
+            <tr>
+                <th>Song Title</th>
+                <th>Artist</th>
+                <th>Select</th>
+            </tr>
+            <tr ng-repeat="song in searchResults()">
+                <td>{{song.name}}</td>
+                <td>{{song.artists[0].name}}</td>
+                <td>
+                    <button class="add-button inline-button" ng-click="addSong(song)"><span class="glyphicon glyphicon-plus"></span>Add Song</button>
+                </td>
+            </tr>
+        </table>
+    </div>
 </div>
 <div ng-show="getWaveState()">
     <div ng-repeat="wave in waves() track by $index" id="wave{{$index}}" ng-show="showContainers[$index]">

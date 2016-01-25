@@ -2,7 +2,8 @@
     font-family: 'Play', sans-serif;
 }
 
-html, body {
+html,
+body {
     height: 100%;
 }
 
@@ -20,6 +21,11 @@ html, body {
     -o-transition: background 0.3s linear;
     -ms-transition: background 0.3s linear;
     transition: background 0.3s linear;
+    -webkit-transition: font-size 0.3s linear;
+    -moz-transition: font-size 0.3s linear;
+    -o-transition: font-size 0.3s linear;
+    -ms-transition: font-size 0.3s linear;
+    transition: font-size 0.3s linear;
 }
 
 .sound:hover {
@@ -27,6 +33,7 @@ html, body {
 }
 
 .colored {
+    font-size: 1.5em;
     background: #cb58d8;
 }
 
@@ -36,8 +43,75 @@ html, body {
 
 #wrapper {
     height: 100%;
-    background: url("http://p1.pichost.me/i/35/1577475.jpg");
+    background: url("http://www.amazinghdwallpapers.net/wp-content/uploads/2016/01/download-light-grey-hd-desktop-wallpapers.jpg");
 }
+
+#brand {
+    background-color: #232323;
+}
+
+nav {
+    background: #1E1C33;
+    border-right: 1px solid #000;
+    box-shadow: 1px 0 0 #222;
+    height: 100%;
+    width: 220px;
+}
+
+ul {
+    background: #1E1C33;
+    border-bottom: 1px solid #222;
+}
+
+li {
+    display: block;
+}
+
+a {
+    background: #1E1C33;
+    border-bottom: 1px solid #000;
+    border-top: 1px solid #222;
+    box-shadow: inset -5px 0 0 hsla(0, 0%, 0%, .2), inset 0 20px 0 #161616;
+    color: #bbb;
+    display: block;
+    font-size: 17px;
+    padding: 1px 45px;
+    text-align: right;
+    text-decoration: none;
+    text-shadow: 0 -1px 1px hsla(0, 0%, 0%, .5);
+    transition: all 300ms;
+}
+
+a:hover,
+a:focus,
+li.current a {
+    background: #222;
+    border-top-color: #3a3a3a;
+    box-shadow: inset -5px 0 0 #3a3a3a, inset 0 20px 0 #282828;
+    color: #ddd;
+    outline: 0;
+    padding: 0 30px;
+    transition: all 300ms;
+}
+
+li.current a {
+    box-shadow: inset -5px 0 0 #e00, inset 0 20px 0 #282828;
+    padding: 0 45px;
+}
+
+a:active {
+    background: #333;
+    border-top-color: #666;
+    box-shadow: inset -5px 0 0 #666, inset 0 20px 0 #444;
+    color: #fff;
+    transition: all 50ms;
+}
+
+li:first-child a {
+    border-top: none;
+}
+
+
 /*#song-pad-1.colored  {
     background-color: rgba(229,229,3,.75);
 }
@@ -118,15 +192,16 @@ html, body {
 .sidebar-nav {
     position: absolute;
     top: 0;
-    width: 200px;
+    width: 220px;
     margin: 0;
     padding: 0;
     list-style: none;
 }
 
 .sidebar-nav li {
-    text-indent: 20px;
+    text-indent: 10px;
     line-height: 40px;
+    font-size: 1.2em;
 }
 
 .sidebar-nav li a {
