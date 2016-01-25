@@ -116,7 +116,6 @@ app.factory('WaveFactory', function($http) {
 
     factory.setFilter = function(num, key) {
         var surfer = waveSurferObjects[num];
-        console.log(surfer.backend.ac);
         var filters = {
             LowPass: function() {
                 var lowpass = surfer.backend.ac.createBiquadFilter();
