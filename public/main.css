@@ -2,28 +2,24 @@
     font-family: 'Play', sans-serif;
 }
 
+html, body {
+    height: 100%;
+}
+
 .sound {
     width: 150px;
     height: 150px;
     margin: 10px;
     margin-bottom: 30px;
     border-radius: 7px;
-    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#b4a8bf+0,f2efff+50,b4a8bf+100 */
-    background: #b4a8bf;
-    /* Old browsers */
-    background: -moz-linear-gradient(top, #b4a8bf 0%, #f2efff 50%, #b4a8bf 100%);
-    /* FF3.6-15 */
-    background: -webkit-linear-gradient(top, #b4a8bf 0%, #f2efff 50%, #b4a8bf 100%);
-    /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom, #b4a8bf 0%, #f2efff 50%, #b4a8bf 100%);
-    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    /* IE6-9 */
+    background: #5F5C7C;
     font-size: 1.4em;
-    -webkit-transition: background 0.6s linear;
-    -moz-transition: background 0.6s linear;
-    -o-transition: background 0.6s linear;
-    -ms-transition: background 0.6s linear;
-    transition: background 0.6s linear;
+    color: #FFF;
+    -webkit-transition: background 0.3s linear;
+    -moz-transition: background 0.3s linear;
+    -o-transition: background 0.3s linear;
+    -ms-transition: background 0.3s linear;
+    transition: background 0.3s linear;
 }
 
 .sound:hover {
@@ -31,23 +27,17 @@
 }
 
 .colored {
-    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#cb58d8+0,f2efff+50,cb58d8+100 */
     background: #cb58d8;
-    /* Old browsers */
-    background: -moz-linear-gradient(top, #cb58d8 0%, #f2efff 50%, #cb58d8 100%);
-    /* FF3.6-15 */
-    background: -webkit-linear-gradient(top, #cb58d8 0%, #f2efff 50%, #cb58d8 100%);
-    /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom, #cb58d8 0%, #f2efff 50%, #cb58d8 100%);
-    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    /* IE6-9 */
 }
 
 .sidebar-option {
     border-bottom: 2px solid #fff;
 }
 
-
+#wrapper {
+    height: 100%;
+    background: url("http://p1.pichost.me/i/35/1577475.jpg");
+}
 /*#song-pad-1.colored  {
     background-color: rgba(229,229,3,.75);
 }
