@@ -17,6 +17,7 @@ app.controller('EditSongCtrl', function($scope, WaveFactory) {
         var index = $scope.showContainers.length;
         $scope.showContainers[index - 1] = true;
         $scope.showContainers.push(false);
+        $scope.isPlaying.push(false);
         WaveFactory.addSong(song);
         WaveFactory.resetSearchResults();
     }
@@ -26,9 +27,9 @@ app.controller('EditSongCtrl', function($scope, WaveFactory) {
         return waveState;
     }
     $scope.isZoomed = false;
-    $scope.isPlaying = false;
+    $scope.isPlaying = [false];
     $scope.playPause = function(index) {
-        $scope.isPlaying = !$scope.isPlaying;
+        $scope.isPlaying[index] = !$scope.isPlaying[index];
         WaveFactory.playPause(index);
     };
 
