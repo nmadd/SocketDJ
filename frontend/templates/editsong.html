@@ -21,8 +21,8 @@
     <div ng-repeat="wave in waves() track by $index" id="wave{{$index}}" ng-show="showContainers[$index]">
         <button class="btn btn-success" ng-click="playPause($index)" ng-show="!isPlaying"><span class="glyphicon glyphicon-play"></span></button>
         <button class="btn btn-warning" ng-click="playPause($index)" ng-show="isPlaying"><span class="glyphicon glyphicon-pause"></span></button>
-        <button class="btn" ng-click="zoom($index)" ng-show="!isZoomed">Zoom In</button>
-        <button class="btn" ng-click="zoom($index)" ng-show="isZoomed">Zoom Out</button>
+        <button class="btn btn-default" ng-click="zoom($index)" ng-show="!isZoomed">Zoom In</button>
+        <button class="btn btn-default" ng-click="zoom($index)" ng-show="isZoomed">Zoom Out</button>
         <div class="btn-group btn-group-sm">
             <button ng-repeat="filter in filters" class="btn btn-primary btn-sml" ng-click="setFilter($parent.$index, filter)">{{filter}}</button>
         </div>

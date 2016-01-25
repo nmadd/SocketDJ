@@ -1,34 +1,44 @@
+* {
+    font-family: 'Play', sans-serif;
+}
+
 .sound {
 	width: 150px;
 	height:150px;
     margin: 10px;
     margin-bottom: 30px;
+    border-radius: 5px;
+    background-color: #B4A8BF;
+    font-size: 1.4em;
 }
 
+.sound:hover {
+    border: 1px solid #D736F7;
+}
 
 .colored {
-    background-color: rgba(255,0,255,.75); 
+    background-color: rgba(255,0,255,.75);
 }
 /*#song-pad-1.colored  {
-    background-color: rgba(229,229,3,.75); 
+    background-color: rgba(229,229,3,.75);
 }
 #song-pad-2.colored  {
-    background-color: rgba(255,84,13,.75); 
+    background-color: rgba(255,84,13,.75);
 }
 #song-pad-3.colored  {
-    background-color: rgba(97,0,255,.75); 
+    background-color: rgba(97,0,255,.75);
 }
 #song-pad-4.colored  {
-    background-color: rgba(2,169,234,.75); 
+    background-color: rgba(2,169,234,.75);
 }
 #song-pad-5.colored  {
-    background-color: rgba(137,252,0,.75); 
+    background-color: rgba(137,252,0,.75);
 }
 #song-pad-6.colored  {
-    background-color: rgba(30,46,222,.75); 
+    background-color: rgba(30,46,222,.75);
 }
 #song-pad-7.colored  {
-    background-color: rgba(206,45,79,.75); 
+    background-color: rgba(206,45,79,.75);
 }*/
 
 
