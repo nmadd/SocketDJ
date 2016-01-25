@@ -28,8 +28,8 @@
 </div>
 <div ng-show="getWaveState()">
     <div ng-repeat="wave in waves() track by $index" id="wave{{$index}}" ng-show="showContainers[$index]">
-        <button class="btn btn-success" ng-click="playPause($index)" ng-show="!isPlaying"><span class="glyphicon glyphicon-play"></span></button>
-        <button class="btn btn-warning" ng-click="playPause($index)" ng-show="isPlaying"><span class="glyphicon glyphicon-pause"></span></button>
+        <button class="btn btn-success" ng-click="playPause($index)" ng-show="!isPlaying[$index]"><span class="glyphicon glyphicon-play"></span></button>
+        <button class="btn btn-warning" ng-click="playPause($index)" ng-show="isPlaying[$index]"><span class="glyphicon glyphicon-pause"></span></button>
         <button class="btn btn-default" ng-click="zoom($index)" ng-show="!isZoomed">Zoom In</button>
         <button class="btn btn-default" ng-click="zoom($index)" ng-show="isZoomed">Zoom Out</button>
         <div class="btn-group btn-group-sm">
