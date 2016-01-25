@@ -104,6 +104,10 @@ app.factory('WaveFactory', function($http) {
         return wavesCount + 1;
     }
 
+    factory.getWaveObjects = function(){
+        return waveSurferObjects;
+    }
+
     factory.toggleZoom = function(num, isZoomed) {
         if (isZoomed) {
             waveSurferObjects[num].zoom(-50);
